@@ -48,7 +48,16 @@ function App() {
           </li>
           <li>
             <ul>
-              <h3>Использовать react-redux</h3>
+              <h3>
+                Использовать{" "}
+                <a
+                  target="_blank"
+                  href="https://react-redux.js.org/"
+                  rel="noreferrer"
+                >
+                  react-redux
+                </a>
+              </h3>
             </ul>
           </li>
         </ol>
