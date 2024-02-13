@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { addData, removeData, updateData } from "../store/store";
+import { MdModeEdit, MdDelete } from "react-icons/md";
 import "./table.css";
 
 const Table = () => {
@@ -57,6 +58,13 @@ const Table = () => {
           placeholder="Name"
         />
         <input
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleInputChange}
+          placeholder="E-mail"
+        />
+        <input
           type="phone"
           name="phone"
           value={formData.phone}
@@ -65,7 +73,6 @@ const Table = () => {
         />
         <label>
           I agree to the terms and conditions
-
           <input
             type="checkbox"
             name="agreementChecked"
@@ -85,6 +92,7 @@ const Table = () => {
         <thead>
           <tr>
             <th>Name</th>
+            <th>E-mail</th>
             <th>Phone</th>
             <th>Agreement</th>
             <th>Date</th>
@@ -93,14 +101,19 @@ const Table = () => {
         </thead>
         <tbody>
           {data.map((item) => (
-            <tr key={item.id}>
+            <tr key={item.id} className="block">
               <td>{item.name}</td>
+              <td>{item.email}</td>
               <td>{item.phone}</td>
               <td>{item.agreementChecked ? "Yes" : "No"}</td>
               <td>{item.selectedDate}</td>
-              <td>
-                <button onClick={() => handleEdit(item.id)}>Edit</button>
-                <button onClick={() => handleDelete(item.id)}>Delete</button>
+              <td className="btns">
+                <button onClick={() => handleEdit(item.id)}>
+                  <MdModeEdit />
+                </button>
+                <button onClick={() => handleDelete(item.id)}>
+                  <MdDelete />
+                </button>
               </td>
             </tr>
           ))}
